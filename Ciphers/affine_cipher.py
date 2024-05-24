@@ -1,5 +1,3 @@
-import random as rand
-
 # Apply the affine cipher to a message (string)
 def apply_affine_cipher(message, k):
     # Make sure the message is a string and the key is (a, b) with a,b in Z_128 and (a, 128) = 1
@@ -66,15 +64,3 @@ def get_inverse(a, n):
     for i in range(2, n):
         if (a*i) % 128 == 1:
             return i
-
-
-#### EXAMPLE CODE ####
-message = "This is a message!!"
-a = rand.randint(0, 127)
-while is_coprime(a, 128) == False:
-    a = rand.randint(0, 127)
-b = rand.randint(0, 127)
-k = (a, b)
-ciphertext = apply_affine_cipher(message, (a, b))
-print(ciphertext)
-print(reverse_affine_cipher(ciphertext, k))
