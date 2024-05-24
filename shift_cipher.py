@@ -34,7 +34,7 @@ def reverse_shift_cipher(ciphertext, k):
     for ch in ciphertext:
         chars.append((ord(ch) - k) % 128)
 
-    # Convery the decrypted ASCII values back into characters and compose them into a string.
+    # Convert the decrypted ASCII values back into characters and compose them into a string.
     message = ""
     for ch in chars:
         message += chr(ch)
