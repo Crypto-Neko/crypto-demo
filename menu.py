@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+import ast
 import sys; sys.path.append("Ciphers")
 from shift_cipher import *
 from substitution_cipher import *
@@ -76,8 +77,6 @@ class CryptoGUI(tk.Frame):
                 key = rand.randint(1, 127)
             encrypted_message = apply_shift_cipher(message, key)
         elif cipher == 1:
-            if key == "random":
-                key = rand.randint(1, 127)
             encrypted_message = apply_substitution_cipher(message, key)
         elif cipher == 2:
             if key == "random":
@@ -86,6 +85,8 @@ class CryptoGUI(tk.Frame):
                     a = rand.randint(1, 127)
                 b = rand.randint(1, 127)
                 key = (a, b)
+            else:
+                key = ast.literal_eval(key)
             encrypted_message = apply_affine_cipher(message, key)
         elif cipher == 3:
             msg_binary = convert_str_to_bin(message)
