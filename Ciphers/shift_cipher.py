@@ -3,7 +3,7 @@ def apply_shift_cipher(message, k):
     # Make sure the message is a string and k is an integer mod 128.
     if not isinstance(message, str):
         raise ValueError("The message must be a string!")
-    if not isinstance(k, int) or k < 0 or k > 127:
+    if (not isinstance(k, int) and not (isinstance(k, float) and k % int(k) != 0)) or k < 0 or k > 127:
         raise ValueError("The key must be an integer between 0 and 127.")
 
     # Shift the ASCII value of each character in message by k and store them in an array.
@@ -24,7 +24,7 @@ def reverse_shift_cipher(ciphertext, k):
     # Make sure the ciphertext is a string and k is an integer mod 128.
     if not isinstance(ciphertext, str):
         raise ValueError("The ciphertext must be a string!")
-    if not isinstance(k, int) or k < 0 or k > 127:
+    if (not isinstance(k, int) and not (isinstance(k, float) and k % int(k) != 0)) or k < 0 or k > 127:
         raise ValueError("The key must be an integer between 0 and 127.")
 
     # Shift the ASCII value of each cahracter back by -k and store them in an array.
