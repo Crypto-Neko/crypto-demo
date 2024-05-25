@@ -17,4 +17,5 @@ from vigenere_cipher import *
 #
 #
 #########################################################################################
-class CryptoGUI
+class CryptoGUI:
+
